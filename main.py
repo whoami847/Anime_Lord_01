@@ -3,9 +3,9 @@ from flask import Flask
 import threading
 import os
 
-API_ID = int(os.getenv("API_ID", 123456))  # তোমার api_id বসাও
-API_HASH = os.getenv("API_HASH", "your_api_hash_here")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "your_bot_token_here")
+API_ID = int(os.getenv("API_ID"28774737)) 
+API_HASH = os.getenv("API_HASH", "851190ab85bb0b6dd547fff8e3c35b73")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "7352104242:AAEpIiqsTduGBYON09wYdK-T9JLXBw7JdJE")
 
 # Pyrogram Bot setup
 bot = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
