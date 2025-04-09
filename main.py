@@ -1,9 +1,9 @@
-from pyrogram import Client
+import os
+from pyrogram import Client, filters
 from flask import Flask
 import threading
-import os
 
-# API এবং Bot Token এর মান পরিবেশ ভেরিয়েবল থেকে আনা হচ্ছে
+# API and Bot Token from environment variables
 API_ID = int(os.getenv("API_ID", "28774737"))
 API_HASH = os.getenv("API_HASH", "851190ab85bb0b6dd547fff8e3c35b73")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "7352104242:AAEpIiqsTduGBYON09wYdK-T9JLXBw7JdJE")
@@ -24,5 +24,5 @@ def run_flask():
 
 # Main
 if __name__ == "__main__":
-    threading.Thread(target=run_flask).start()  # Flask চালাও আলাদা থ্রেডে
-    bot.run()  # Pyrogram bot চালাও
+    threading.Thread(target=run_flask).start()  # Run Flask in a separate thread
+    bot.run()  # Run the Pyrogram bot
