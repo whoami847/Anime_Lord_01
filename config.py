@@ -1,4 +1,4 @@
 # config.py
-API_TOKEN = "YOUR_BOT_API_TOKEN"
-ADMIN_USER_ID = 123456789
-DB_URL = "mongodb+srv://your_mongo_url"
+API_TOKEN = "7352104242:AAEpIiqsTduGBYON09wYdK-T9JLXBw7JdJE"
+ADMIN_USER_ID = 7282066033
+DB_URL = "mongodb+srv://Anime:Anime@anime.suydbfe.mongodb.net/?retryWrites=true&w=majority&appName=Anime"
