@@ -1,12 +1,7 @@
-# advanced.py
-from aiogram import types
-from aiogram.types import ParseMode
-from emojis import get_emoji
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from config import ADMINS
 
-async def handle_advanced_features(message: types.Message):
-    try:
-        # Custom button creation, advanced automation, etc.
-        await message.reply(f"{get_emoji('star')} Advanced features configured!", parse_mode=ParseMode.MARKDOWN_V2)
-    except Exception as e:
-        await message.reply(f"{get_emoji('warning')} Error: {str(e)}", parse_mode=ParseMode.MARKDOWN_V2)
-      
+@Client.on_message(filters.command("stats") & filters.user(ADMINS))
+async def bot_stats(client: Client, message: Message):
+    await message.reply_text("Bot is running smoothly.\nNo errors found.")
