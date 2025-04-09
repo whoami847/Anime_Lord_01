@@ -1,3 +1,2 @@
 worker: python3 main.py
-web: python3 main.py
-web: gunicorn main:app
+web: gunicorn main:flask_app
