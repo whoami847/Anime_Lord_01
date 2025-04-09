@@ -1,13 +1,8 @@
-# channel.py
-from aiogram import types
-from aiogram.types import ParseMode
-from utils.autopost import AutoPost
-from emojis import get_emoji
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from config import CHANNELS, ADMINS
 
-async def handle_channel_subscription(message: types.Message):
-    try:
-        # Logic for forced channel subscription
-        await message.reply(f"{get_emoji('thumbs_up')} You have been subscribed to the channel.", parse_mode=ParseMode.MARKDOWN_V2)
-    except Exception as e:
-        await message.reply(f"{get_emoji('warning')} Error: {str(e)}", parse_mode=ParseMode.MARKDOWN_V2)
-      
+@Client.on_message(filters.command("channel") & filters.user(ADMINS))
+async def list_channels(client: Client, message: Message):
+    channels_list = "\n".join([f"{idx+1}. {channel}" for idx, channel in enumerate(CHANNELS)])
+    await message.reply_text(f"Your managed channels:\n\n{channels_list}")
