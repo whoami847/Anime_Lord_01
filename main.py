@@ -17,7 +17,7 @@ flask_app = Flask(__name__)
 def home():
     return "Bot is running!"
 
-# Flask run function for 8000 port (for Koyeb)
+# Flask run function for 8080 port (for Koyeb)
 def run_flask():
     flask_app.run(host="0.0.0.0", port=8000)
 
