@@ -1,4 +1,15 @@
-# config.py
-API_TOKEN = "7352104242:AAEpIiqsTduGBYON09wYdK-T9JLXBw7JdJE"
-ADMIN_USER_ID = 7282066033
-DB_URL = "mongodb+srv://Anime:Anime@anime.suydbfe.mongodb.net/?retryWrites=true&w=majority&appName=Anime"
+import os
+
+API_ID = int(os.getenv("API_ID", "123456"))
+API_HASH = os.getenv("API_HASH", "your_api_hash")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "your_bot_token")
+PLUGIN_FOLDER = "handlers"
+
+ADMINS = [123456789]  # Your Telegram user ID
+CHANNELS = ["@yourchannel1", "@yourchannel2"]
+
+AUTO_REPLY = {
+    "text": "Hello! I am alive."
+}
+
+BANNED_USERS = set()
