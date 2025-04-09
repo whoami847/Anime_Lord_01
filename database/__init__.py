@@ -1,2 +1,1 @@
-# __init__.py
-# Empty init file for the database folder
+from .database import save_bulk_files
