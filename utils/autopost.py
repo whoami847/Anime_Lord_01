@@ -1,15 +1,15 @@
-# autopost.py
 from aiogram import types
-from emojis import get_emoji
+import emojis  # Correcting the import
 
 class AutoPost:
     def __init__(self, bot):
         self.bot = bot
-    
+
     async def post_to_channel(self, message: types.Message, channel_id: str):
         try:
-            await self.bot.send_message(channel_id, message.text)
+            # Here you can use emojis.encode() to add emojis
+            text_with_emojis = emojis.encode(message.text)
+            await self.bot.send_message(channel_id, text_with_emojis)
             return True
         except Exception as e:
             return False
-          
