@@ -1,12 +1,27 @@
-# security.py
-from aiogram import types
-from aiogram.types import ParseMode
-from emojis import get_emoji
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from config import BANNED_USERS, ADMINS
 
-async def handle_security(message: types.Message):
+@Client.on_message(filters.command("ban") & filters.user(ADMINS))
+async def ban_user(client: Client, message: Message):
+    if len(message.command) < 2:
+        await message.reply_text("Usage: /ban user_id")
+        return
     try:
-        # Security settings like data backup, restore, etc.
-        await message.reply(f"{get_emoji('robot')} Security settings applied successfully.", parse_mode=ParseMode.MARKDOWN_V2)
+        user_id = int(message.command[1])
+        BANNED_USERS.add(user_id)
+        await message.reply_text(f"User {user_id} banned.")
     except Exception as e:
-        await message.reply(f"{get_emoji('warning')} Error: {str(e)}", parse_mode=ParseMode.MARKDOWN_V2)
-      
+        await message.reply_text(f"Failed to ban user: {e}")
+
+@Client.on_message(filters.command("unban") & filters.user(ADMINS))
+async def unban_user(client: Client, message: Message):
+    if len(message.command) < 2:
+        await message.reply_text("Usage: /unban user_id")
+        return
+    try:
+        user_id = int(message.command[1])
+        BANNED_USERS.discard(user_id)
+        await message.reply_text(f"User {user_id} unbanned.")
+    except Exception as e:
+        await message.reply_text(f"Failed to unban user: {e}")
