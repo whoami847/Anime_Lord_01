@@ -3,7 +3,7 @@ from flask import Flask
 import threading
 import os
 
-API_ID = int(os.getenv("API_ID"28774737)) 
+API_ID = int(os.getenv("API_ID", "28774737")) 
 API_HASH = os.getenv("API_HASH", "851190ab85bb0b6dd547fff8e3c35b73")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "7352104242:AAEpIiqsTduGBYON09wYdK-T9JLXBw7JdJE")
 
