@@ -1,12 +1,9 @@
-# users.py
-from aiogram import types
-from aiogram.types import ParseMode
-from emojis import get_emoji
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from database import get_user_count
+from config import ADMINS
 
-async def handle_user_list(message: types.Message):
-    try:
-        # Logic to show user list
-        await message.reply(f"{get_emoji('calendar')} Here is the list of users.", parse_mode=ParseMode.MARKDOWN_V2)
-    except Exception as e:
-        await message.reply(f"{get_emoji('warning')} Error: {str(e)}", parse_mode=ParseMode.MARKDOWN_V2)
-      
+@Client.on_message(filters.command("users") & filters.user(ADMINS))
+async def show_user_count(client: Client, message: Message):
+    count = await get_user_count()
+    await message.reply_text(f"Total users in database: {count}")
