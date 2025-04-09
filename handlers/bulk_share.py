@@ -2,7 +2,7 @@
 from aiogram import types
 from aiogram.types import ParseMode
 from utils.autopost import AutoPost
-from emojis import get_emoji
+# from emojis import get_emoji
 
 async def handle_bulk_share(message: types.Message):
     try:
