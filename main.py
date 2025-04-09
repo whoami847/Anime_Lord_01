@@ -19,7 +19,7 @@ def home():
 
 # Flask run function for 8080 port (for Koyeb)
 def run_flask():
-    flask_app.run(host="0.0.0.0", port=8000)
+    flask_app.run(host="0.0.0.0", port=8080)
 
 # Main
 if __name__ == "__main__":
