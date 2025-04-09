@@ -1,4 +1,3 @@
-# backup.py
 import shutil
 import os
 from datetime import datetime
@@ -13,4 +12,3 @@ def backup_data():
         return f"Backup created at {backup_dir}"
     except Exception as e:
         return f"Error during backup: {str(e)}"
-      
